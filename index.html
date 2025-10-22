@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visor 3D - Three.js Models</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #111;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #222;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    select {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 5px;
+    }
+    iframe {
+      flex: 1;
+      border: none;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Visor 3D</h2>
+    <select id="modelSelector">
+      <option value="examples/webgl_loader_collada_kinematics.html">Collada Kinematics</option>
+      <option value="examples/webgl_loader_collada_skinning.html">Collada Skinning</option>
+      <option value="examples/webgl_loader_collada.html">Collada</option>
+      <option value="examples/webgl_loader_gltf_avif.html">GLTF Avif</option>
+      <option value="examples/webgl_loader_gltf_compressed.html">GLTF Compressed</option>
+      <option value="examples/webgl_loader_fbx.html">FBX</option>
+    </select>
+  </header>
+
+  <iframe id="viewer" src="examples/webgl_loader_collada.html"></iframe>
+
+  <script>
+    const selector = document.getElementById('modelSelector');
+    const viewer = document.getElementById('viewer');
+
+    selector.addEventListener('change', () => {
+      viewer.src = selector.value;
+    });
+  </script>
+</body>
+</html>
